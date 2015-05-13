@@ -1,0 +1,32 @@
+{
+    "name": "twitter-stream-api",
+    "version": "0.1.0",
+    "description": "Twitter Stream API client",
+    "main": "lib/main.js",
+    "repository": {
+        "type": "git",
+        "url": "git@github.com:trygve-lie/twitter-stream-api.git"
+    },
+    "bugs": {
+    "url": "https://github.com/trygve-lie/twitter-stream-api/issues"
+    },
+    "scripts": {
+        "pretest": "jshint ./lib/*.js ./test/*.js",
+        "test": "node ./test/stream.js"
+    },
+    "keywords": [
+        "twitter",
+        "stream"
+    ],
+    "author": "Trygve Lie <github@trygve-lie.com>",
+    "license": "MIT",
+    "dependencies": {
+        "core-util-is": "1.x",
+        "recovery" : "0.2.x",
+        "oauth": "0.9.x"
+    },
+    "devDependencies": {
+        "jshint": "latest",
+        "through2": "latest"
+    }
+}
