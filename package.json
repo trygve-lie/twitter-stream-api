@@ -27,6 +27,7 @@
     },
     "devDependencies": {
         "jshint": "latest",
+        "ws": "latest",
         "through2": "latest"
     }
 }

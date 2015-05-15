@@ -10,10 +10,10 @@ var TwitterStream = require('../'),
 
 
 var keys = {
-    consumer_key : undefined,
-    consumer_secret : undefined,
-    access_token_key : undefined,
-    access_token_secret : undefined
+    consumer_key:undefined,
+    consumer_secret:undefined,
+    access_token_key:undefined,
+    access_token_secret:undefined
 };
 
 
@@ -23,11 +23,11 @@ Twitter.stream('public', {
     track: 'javascript'
 });
 
-
+/*
 setTimeout(function () {
 	Twitter.close();
 }, 6000);
-
+*/
 
 
 // Emitted events example
@@ -44,7 +44,7 @@ Twitter.on('end', function () {
 // Pipe example
 
 Twitter.pipe(through({ objectMode: true }, function (obj, enc, callback) {
-    console.log(obj);
+    console.log(obj.id);
     this.push(obj);
     callback();
  }));
