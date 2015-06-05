@@ -22,7 +22,8 @@
     "license": "MIT",
     "dependencies": {
         "core-util-is": "1.x",
-        "recovery" : "0.2.x",
+        "backoff": "2.4.x",
+        "recovery": "0.2.x",
         "oauth": "0.9.x"
     },
     "devDependencies": {

@@ -2,9 +2,10 @@ var WebSocket = require('ws');
 var Recovery = require('recovery');
 
 var recovery = new Recovery({
-  max: '30 seconds',
-  min: '100 milliseconds',
-  retries: 50
+  max: '16 seconds',
+  min: '250 milliseconds',
+  retries: 100,
+  factor: 2
 });
 
 
