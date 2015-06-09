@@ -23,6 +23,23 @@ Twitter.stream('public', {
     track: 'javascript'
 });
 
+Twitter.on('connection success', function () {
+    console.log('connection success');
+});
+
+Twitter.on('data error', function (error) {
+    console.log('data error', error);
+});
+
+Twitter.on('reconnect start', function (number) {
+    console.log('reconnect start', number);
+});
+
+
+
+
+
+
 /*
 setTimeout(function () {
 	Twitter.close();
@@ -48,3 +65,4 @@ Twitter.pipe(through({ objectMode: true }, function (obj, enc, callback) {
     this.push(obj);
     callback();
  }));
+

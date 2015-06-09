@@ -1,20 +1,90 @@
 var WebSocket = require('ws');
-var Backoff = require('backoff');
 
-var backoff = Backoff.exponential({
-    initialDelay: 10,
-    maxDelay: 1000
+var Backoff = require('backoff/lib/backoff');
+var ExponentialBackoffStrategy = require('backoff/lib/strategy/exponential');
+var LinearBackoffStrategy = require('backoff-linear-strategy');
+
+
+// HTTP errors
+var exponential = new Backoff(new LinearBackoffStrategy({
+    initialDelay: 500,
+    maxDelay: 2000
+}));
+
+/*
+var exponential = Backoff.exponential({
+    initialDelay: 500,
+    maxDelay: 320000
 });
+*/
 
-backoff.on('backoff', function (number, delay) {
+exponential.failAfter(10);
+
+
+var client = function (backout) {
+    var ws = new WebSocket('ws://localhost:8080/');
+
+    ws.on('open', function () {
+        console.log('client opened');
+        ws.send('client says hello');
+        backout.reset();
+    });
+
+    ws.on('message', function(data, flags) {
+        console.log('client message:', data);
+    });
+
+    ws.on('error', function (error) {
+        console.log('client error');
+        backout.backoff();
+    });
+
+    ws.on('close', function (ev) {
+        console.log('client closed');
+        backout.backoff();
+    });
+
+    return ws;
+};
+
+var ws = client(exponential);
+
+exponential.on('backoff', function (number, delay) {
     console.log('backoff start', number, delay);
 });
 
-backoff.on('ready', function (number, delay) {
+exponential.on('ready', function (number, delay) {
     console.log('backoff done', number, delay);
+    ws = client(exponential);
+    /*
+    if (number < 15) {
+        // backoff.backoff();
+        ws = client(exponential);
+    }
+    */
 });
 
-backoff.backoff();
+exponential.on('fail', function () {
+    console.log('fail');
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /*
