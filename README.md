@@ -49,6 +49,162 @@ Twitter.pipe(through({ objectMode: true }, function (obj, enc, callback) {
 
 
 
+## Events
+
+twitter-stream-api expose a rich set of events making it possible to monitor and
+take action upon what is going on under the hood. 
+
+
+### connection success
+
+Emitted when a successfull connection to the Twitter Stream API are established.
+
+```js
+Twitter.on('connection success', function () {
+    console.log('connection success');
+});
+```
+
+
+### connection aborted
+
+Emitted when a the connection to the Twitter Stream API are taken down / closed.
+
+```js
+Twitter.on('connection aborted', function () {
+    console.log('connection aborted');
+});
+```
+
+
+### connection error network
+
+Emitted when the connection to the Twitter Stream API have TCP/IP level network 
+errors. This error event are normally emitted if there are network level errors
+during the connection process.
+
+```js
+Twitter.on('connection error network', function (error) {
+    console.log('connection error network', error);
+});
+```
+
+When this event is emitted a linear reconnect will start. The reconnect will
+attempt a reconnect after 250 milliseconds and increase the reconnect attempts
+linearly up to 16 seconds.
+
+
+### connection error stall
+
+Emitted when the connection to the Twitter Stream API have been flagged as stall.
+A stall connection is a connection which have not received any new data or keep 
+alive messages from the Twitter Stream API during a period of 90 seconds.
+
+This error event are normally emitted when a connection have been established
+but there has been a drop in it after a while.
+
+```js
+Twitter.on('connection error stall', function () {
+    console.log('connection error stall');
+});
+```
+
+When this event is emitted a linear reconnect will start. The reconnect will
+attempt a reconnect after 250 milliseconds and increase the reconnect attempts 
+linearly up to 16 seconds.
+
+
+### connection error http
+
+Emitted when the connection to the Twitter Stream API return an HTTP error code.
+
+This error event are normally emitted if there are HTTP errors during the 
+connection process.
+
+```js
+Twitter.on('connection error http', function (httpStatusCode) {
+    console.log('connection error http', httpStatusCode);
+});
+```
+
+When this event is emitted a exponentially reconnect will start. The reconnect 
+will attempt a reconnect after 5 seconds and increase the reconnect attempts
+exponentially up to 320 seconds.
+
+
+### connection rate limit
+
+Emitted when the connection to the Twitter Stream API are being rate limited.
+Twitter does only allow one connection for each application to its Stream API.Multiple connections or to rappid reconnects will cause a rate limiting to 
+happen.
+
+```js
+Twitter.on('connection rate limit', function (httpStatusCode) {
+    console.log('connection rate limit', httpStatusCode);
+});
+```
+
+When this event is emitted a exponentially reconnect will start. The reconnect 
+will attempt a reconnect after 1 minute and double the reconnect attempts
+exponentially.
+
+
+### connection error unknown
+
+Emitted when the connection to the Twitter Stream API throw an unexpected error 
+which are not within the errors defined by the Twitter Stream API documentation.
+
+```js
+Twitter.on('connection error unknown', function (error) {
+    console.log('connection error unknown', error);
+    Twitter.destroy();
+});
+```
+
+When this event is emitted the client will, if it can, keep the connection to
+the Twitter Stream API and not attemt to reconnect. Destroying the connection 
+and handling a possilbe reconnect must be handled by the consumer of the client.
+
+
+### data
+
+Emitted when a Tweet ocur in the stream.
+
+```js
+Twitter.on('data', function (obj) {
+    console.log('data', obj);
+});
+```
+
+
+### data keep-alive
+
+Emitted when the client receive a keep alive message from the Twitter Stream API.
+The Twitter Stream API sends a keep alive message every 30 second if no messages
+have been sendt to ensure that the connection are kept open. This keep alive
+messages are mostly being used under the hood to detect stalled connections and
+other connection issues.
+
+```js
+Twitter.on('data keep-alive', function () {
+    console.log('data keep-alive');
+});
+```
+
+
+### data error
+
+Emitted if the client received an message from the Twitter Stream API which the
+client could not parse into an object or handle in some other way.
+
+```js
+Twitter.on('data error', function (error) {
+    console.log('data error', error);
+});
+```
+
+
+
 ## License 
 
 The MIT License (MIT)

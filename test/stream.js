@@ -8,61 +8,56 @@ var TwitterStream = require('../'),
 
 
 
+var TwitterDev1 = new TwitterStream({
+    consumer_key:"",
+    consumer_secret:"",
+    access_token_key:"",
+    access_token_secret:""
+});
 
-var keys = {
-    consumer_key:undefined,
-    consumer_secret:undefined,
-    access_token_key:undefined,
-    access_token_secret:undefined
-};
-
-
-var Twitter = new TwitterStream(keys);
-Twitter.stream('public', {
+TwitterDev1.stream('public', {
     follow: '2840926455,65706552',
     track: 'javascript'
 });
 
-Twitter.on('connection success', function () {
-    console.log('connection success');
+TwitterDev1.on('connection success', function () {
+    console.log('dev1', 'connection success');
 });
 
-Twitter.on('data error', function (error) {
-    console.log('data error', error);
+TwitterDev1.on('connection aborted', function () {
+    console.log('dev1', 'connection aborted');
 });
 
-Twitter.on('reconnect start', function (number) {
-    console.log('reconnect start', number);
+TwitterDev1.on('connection error network', function () {
+    console.log('dev1', 'connection error network');
 });
 
-
-
-
-
-
-/*
-setTimeout(function () {
-	Twitter.close();
-}, 6000);
-*/
-
-
-// Emitted events example
-/*
-Twitter.on('data', function (data) {
-  console.log('data', data);
+TwitterDev1.on('connection error stall', function () {
+    console.log('dev1', 'connection error stall');
 });
-Twitter.on('end', function () {
-  console.log('stream end');
+
+TwitterDev1.on('connection error http', function () {
+    console.log('dev1', 'connection error http');
 });
-*/
 
+TwitterDev1.on('connection rate limit', function () {
+    console.log('dev1', 'connection rate limit');
+});
 
-// Pipe example
+TwitterDev1.on('connection error unknown', function () {
+    console.log('dev1', 'connection error unknown');
+});
 
-Twitter.pipe(through({ objectMode: true }, function (obj, enc, callback) {
-    console.log(obj.id);
+TwitterDev1.on('data keep-alive', function () {
+    console.log('dev1', 'data keep-alive');
+});
+
+TwitterDev1.on('data error', function () {
+    console.log('dev1', 'data error');
+});
+
+TwitterDev1.pipe(through({ objectMode: true }, function (obj, enc, callback) {
+    console.log(obj.id, obj.text);
     this.push(obj);
     callback();
  }));
-
