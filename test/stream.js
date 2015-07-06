@@ -15,7 +15,7 @@ var TwitterDev1 = new TwitterStream({
     access_token_secret:""
 });
 
-TwitterDev1.stream('public', {
+TwitterDev1.stream('statuses/filter', {
     follow: '2840926455,65706552',
     track: 'javascript'
 });
