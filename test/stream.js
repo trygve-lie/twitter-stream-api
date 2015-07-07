@@ -8,16 +8,17 @@ var TwitterStream = require('../'),
 
 
 
-var TwitterDev1 = new TwitterStream({
-    consumer_key:"",
-    consumer_secret:"",
-    access_token_key:"",
-    access_token_secret:""
+var TwitterDev1 = new TwitterStream({ 
+    consumer_key: '',
+    consumer_secret: '',
+    token: '',
+    token_secret: '' 
 });
 
 TwitterDev1.stream('statuses/filter', {
     follow: '2840926455,65706552',
-    track: 'javascript'
+    track: ['javascript', 'syria'],
+    stall_warnings : true
 });
 
 TwitterDev1.on('connection success', function () {

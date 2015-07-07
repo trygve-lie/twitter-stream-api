@@ -22,9 +22,9 @@
     "license": "MIT",
     "dependencies": {
         "core-util-is": "1.x",
+        "request": "2.x",
         "backoff-linear-strategy": "1.x",
         "backoff": "2.4.x",
-        "oauth": "0.9.x",
         "emits": "3.x"
     },
     "devDependencies": {
