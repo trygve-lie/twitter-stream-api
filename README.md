@@ -30,12 +30,12 @@ var TwitterStream = require('twitter-stream-api'),
 var keys = {
     consumer_key : "your_consumer_key",
     consumer_secret : "your_consumer_secret",
-    access_token_key : "your_access_token_key",
-    access_token_secret : "your_access_token_secret"
+    token : "your_access_token_key",
+    token_secret : "your_access_token_secret"
 };
 
 var Twitter = new TwitterStream(keys);
-Twitter.stream('public', {
+Twitter.stream('statuses/filter', {
     follow: '2840926455,65706552',
     track: 'javascript'
 });
@@ -46,6 +46,23 @@ Twitter.pipe(through({ objectMode: true }, function (obj, enc, callback) {
     callback();
  }));
 ```
+
+
+
+## Constructor
+
+
+
+## API
+
+
+### .stream(endpoint, parameters)
+
+
+### .close()
+
+
+### .debug(callback)
 
 
 
@@ -60,8 +77,8 @@ take action upon what is going on under the hood.
 Emitted when a successfull connection to the Twitter Stream API are established.
 
 ```js
-Twitter.on('connection success', function () {
-    console.log('connection success');
+Twitter.on('connection success', function (uri) {
+    console.log('connection success', uri);
 });
 ```
 

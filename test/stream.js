@@ -15,14 +15,22 @@ var TwitterDev1 = new TwitterStream({
     token_secret: '' 
 });
 
+TwitterDev1.debug(function (reqObj) {
+    require('request-debug')(reqObj, function (type, data, r) {
+        console.log('type', type);
+//        console.log('data', data);
+//        console.log('r', r);
+    });
+});
+
 TwitterDev1.stream('statuses/filter', {
     follow: '2840926455,65706552',
     track: ['javascript', 'syria'],
     stall_warnings : true
 });
 
-TwitterDev1.on('connection success', function () {
-    console.log('dev1', 'connection success');
+TwitterDev1.on('connection success', function (uri) {
+    console.log('dev1', 'connection success', uri);
 });
 
 TwitterDev1.on('connection aborted', function () {
@@ -61,4 +69,7 @@ TwitterDev1.pipe(through({ objectMode: true }, function (obj, enc, callback) {
     console.log(obj.id, obj.text);
     this.push(obj);
     callback();
- }));
+ }, function (callback) {
+    console.log('I flushed!!');
+    callback();
+}));
