@@ -1,6 +1,6 @@
 {
     "name": "twitter-stream-api",
-    "version": "0.1.1",
+    "version": "0.2.0",
     "description": "A streaming Twitter Stream API client with extended exposure of the underlaying protocol events",
     "main": "lib/main.js",
     "repository": {
@@ -30,8 +30,6 @@
     },
     "devDependencies": {
         "request-debug": "0.2.x",
-        "jshint": "latest",
-        "ws": "latest",
-        "through2": "latest"
+        "jshint": "latest"
     }
 }

@@ -4,7 +4,15 @@
 
 
 var TwitterStream = require('../'),
-    through = require('through2');
+    Writable = require('stream').Writable;
+
+
+
+var Output = Writable({objectMode: true});
+Output._write = function (chunk, enc, next) {
+    console.log(chunk.id, chunk.text);
+    next();
+};
 
 
 
@@ -13,13 +21,11 @@ var TwitterDev1 = new TwitterStream({
     consumer_secret: '',
     token: '',
     token_secret: '' 
-});
+}, true);
 
 TwitterDev1.debug(function (reqObj) {
     require('request-debug')(reqObj, function (type, data, r) {
         console.log('type', type);
-//        console.log('data', data);
-//        console.log('r', r);
     });
 });
 
@@ -65,19 +71,4 @@ TwitterDev1.on('data error', function () {
     console.log('dev1', 'data error');
 });
 
-
-TwitterDev1.on('data', function (obj) {
-    console.log(obj.id, obj.text);
-});
-
-
-/*
-TwitterDev1.pipe(through({ objectMode: true }, function (obj, enc, callback) {
-    console.log(obj.id, obj.text);
-    this.push(obj);
-    callback();
- }, function (callback) {
-    console.log('I flushed!!');
-    callback();
-}));
-*/
+TwitterDev1.pipe(Output);
