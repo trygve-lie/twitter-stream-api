@@ -65,6 +65,13 @@ TwitterDev1.on('data error', function () {
     console.log('dev1', 'data error');
 });
 
+
+TwitterDev1.on('data', function (obj) {
+    console.log(obj.id, obj.text);
+});
+
+
+/*
 TwitterDev1.pipe(through({ objectMode: true }, function (obj, enc, callback) {
     console.log(obj.id, obj.text);
     this.push(obj);
@@ -73,3 +80,4 @@ TwitterDev1.pipe(through({ objectMode: true }, function (obj, enc, callback) {
     console.log('I flushed!!');
     callback();
 }));
+*/
