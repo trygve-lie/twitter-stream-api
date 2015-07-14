@@ -7,9 +7,6 @@ A streaming [Twitter Stream API](https://dev.twitter.com/streaming/overview)
 client with extended exposure of the underlaying protocol events. It does also 
 fully adhere to Twitters different reconnect rules.
 
-WARNING: This module are in active development. Features are missing and 
-breaking API changes will occur. 10/6-2015
-
 
 
 ## Installation

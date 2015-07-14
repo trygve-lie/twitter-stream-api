@@ -6,4 +6,4 @@ tmp/**/*
 .idea/**/*
 *.iml
 *.log
-out
+examples/keys.json

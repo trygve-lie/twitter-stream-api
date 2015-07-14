@@ -23,15 +23,8 @@ Output._write = function (obj, enc, next) {
 
 var Twitter = new TwitterStream(keys);
 
-Twitter.debug(function (reqObj) {
-    require('request-debug')(reqObj, function (type, data, req) {
-        console.log('type', type);
-    });
-});
-
-Twitter.stream('statuses/filter', {
-    follow: ['2840926455', '65706552'],
-    track: ['javascript']
+Twitter.stream('site', {
+    follow: ['2840926455', '65706552']
 });
 
 Twitter.on('connection success', function (uri) {
