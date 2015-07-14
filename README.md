@@ -1,6 +1,7 @@
 # twitter-stream-api
 
-[![Dependencies](https://img.shields.io/david/trygve-lie/twitter-stream-api.svg?style=flat-square)](https://david-dm.org/trygve-lie/twitter-stream-api)
+[![Dependencies](https://img.shields.io/david/trygve-lie/twitter-stream-api.svg?style=flat-square)](https://david-dm.org/trygve-lie/twitter-stream-api)[![Build Status](http://img.shields.io/travis/trygve-lie/twitter-stream-api/master.svg?style=flat-square)](https://travis-ci.org/trygve-lie/twitter-stream-api)
+
 
 A streaming [Twitter Stream API](https://dev.twitter.com/streaming/overview) 
 client with extended exposure of the underlaying protocol events. It does also 
