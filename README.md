@@ -44,6 +44,36 @@ Twitter.pipe(fs.createWriteStream("tweets.json"));
 
 ## Constructor
 
+Create a new Twitter Stream API instance.
+
+```js
+var Twitter = new TwitterStream(keys, objectMode);
+```
+
+
+### keys (required)
+
+Takes an Object containing your Twitter API keys and access tokens. The Object 
+are as follow:
+
+```js
+{
+    consumer_key : "your_consumer_key",
+    consumer_secret : "your_consumer_secret",
+    token : "your_access_token_key",
+    token_secret : "your_access_token_secret"
+}
+```
+
+Twitter API keys and tokens can be generated [here](https://apps.twitter.com/).
+
+
+### objectMode (optional)
+
+Boolean value for controlling if the stream should emit Objects or not. Default
+value is `true` which set the stream to emit Objects. If a non-object stream is
+wanted, set the value to `false`.
+
 
 
 ## API
