@@ -131,7 +131,7 @@ is the same as:
 
 ```js
 Twitter.stream('statuses/filter', {
-    track: ['javascript'],['rust']
+    track: ['javascript','rust']
 });
 ```
 
