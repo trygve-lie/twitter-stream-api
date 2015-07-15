@@ -18,12 +18,12 @@ $ npm install twitter-stream-api
 
 ## Simple stream usage
 
-Connect to the Twitter stream API and listen on messages from two users and all
-messages tagged with the hash "javascript".
+Connect to the Twitter stream API and listen for messages containing the word 
+"javascript".
 
 ```js
 var TwitterStream = require('twitter-stream-api'),
-    through = require('through2');
+    fs = require("fs");
 
 var keys = {
     consumer_key : "your_consumer_key",
@@ -34,15 +34,10 @@ var keys = {
 
 var Twitter = new TwitterStream(keys);
 Twitter.stream('statuses/filter', {
-    follow: '2840926455,65706552',
     track: 'javascript'
 });
 
-Twitter.pipe(through({ objectMode: true }, function (obj, enc, callback) {
-    console.log(obj.id);
-    this.push(obj);
-    callback();
- }));
+Twitter.pipe(fs.createWriteStream("tweets.json"));
 ```
 
 
