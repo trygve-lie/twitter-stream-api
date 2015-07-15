@@ -23,7 +23,7 @@ Connect to the Twitter stream API and listen for messages containing the word
 
 ```js
 var TwitterStream = require('twitter-stream-api'),
-    fs = require("fs");
+    fs = require('fs');
 
 var keys = {
     consumer_key : "your_consumer_key",
@@ -37,7 +37,7 @@ Twitter.stream('statuses/filter', {
     track: 'javascript'
 });
 
-Twitter.pipe(fs.createWriteStream("tweets.json"));
+Twitter.pipe(fs.createWriteStream('tweets.json'));
 ```
 
 
