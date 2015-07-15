@@ -65,7 +65,7 @@ are as follow:
 }
 ```
 
-Twitter API keys and tokens can be generated [here](https://apps.twitter.com/).
+Twitter API keys and tokens can be [generated here](https://apps.twitter.com/).
 
 
 ### objectMode (optional)
@@ -78,11 +78,67 @@ wanted, set the value to `false`.
 
 ## API
 
+The Twitter Stream API instance have the following API:
+
 
 ### .stream(endpoint, parameters)
 
+Opens a connection to a given given stream endpoint.
+
+
+#### endpoint (required)
+
+The following values can be provided:
+
+ * `statuses/filter` [API Doc](https://dev.twitter.com/streaming/reference/post/statuses/filter)
+ * `statuses/sample` [API Doc](https://dev.twitter.com/streaming/reference/get/statuses/sample)
+ * `statuses/firehose` [API Doc](https://dev.twitter.com/streaming/reference/get/statuses/firehose)
+ * `user` [API Doc](https://dev.twitter.com/streaming/reference/get/user)
+ * `site` [API Doc](https://dev.twitter.com/streaming/reference/get/site)
+
+
+#### parameters (required)
+
+Object holding optional Twitter Stream API endpoint parameters. The Twitter 
+Stream API endpoints can take a set of given parameters which can be found in
+the API documentation for each endpoint.
+
+Example:
+
+The `statuses/filter` endpoint can take a [`track`](https://dev.twitter.com/streaming/reference/post/statuses/filter)
+parameter for tracking tweets on keywords. The same endpoint can also take a 
+`stall_warnings` parameter to include stall warnings in the Twitter stream.
+
+To track the keyword `javascript` and include stall warnings, do as follow:
+
+```js
+Twitter.stream('statuses/filter', {
+    track: 'javascript',
+    stall_warnings: true
+});
+```
+
+Do note that the `track` and `follow` parameters can take both a comma separated
+list of values or an Array of values.
+
+```js
+Twitter.stream('statuses/filter', {
+    track: 'javascript,rust'
+});
+```
+
+is the same as:
+
+```js
+Twitter.stream('statuses/filter', {
+    track: ['javascript'],['rust']
+});
+```
+
 
 ### .close()
+
+Closes the connection against the Twitter Stream API.
 
 
 ### .debug(callback)
