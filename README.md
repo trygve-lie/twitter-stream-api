@@ -32,7 +32,7 @@ var keys = {
     token_secret : "your_access_token_secret"
 };
 
-var Twitter = new TwitterStream(keys);
+var Twitter = new TwitterStream(keys, false);
 Twitter.stream('statuses/filter', {
     track: 'javascript'
 });
