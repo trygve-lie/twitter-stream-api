@@ -143,6 +143,26 @@ Closes the connection against the Twitter Stream API.
 
 ### .debug(callback)
 
+Under the hood this client use [request](https://github.com/request/request) to
+connect to the Twitter Stream API. Request have several tools for debugging its
+connection(s). This method provide access to the underlaying request object so
+one can plug in a debugger to [request](https://github.com/request/request).
+
+The underlaying request object are available as the first argument on the 
+callback.
+
+Example using [request-debug](https://github.com/request/request-debug):
+
+```js
+var Twitter = new TwitterStream(keys);
+
+Twitter.debug(function (reqObj) {
+    require('request-debug')(reqObj, function (type, data, req) {
+        console.log(type, data, req);
+    });
+});
+```
+
 
 
 ## Events

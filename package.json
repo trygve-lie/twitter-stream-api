@@ -1,6 +1,6 @@
 {
     "name": "twitter-stream-api",
-    "version": "0.2.0",
+    "version": "0.2.2",
     "description": "A streaming Twitter Stream API client with extended exposure of the underlaying protocol events",
     "main": "lib/main.js",
     "repository": {
