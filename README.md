@@ -83,7 +83,7 @@ The Twitter Stream API instance have the following API:
 
 ### .stream(endpoint, parameters)
 
-Opens a connection to a given given stream endpoint.
+Opens a connection to a given stream endpoint.
 
 
 #### endpoint (required)
