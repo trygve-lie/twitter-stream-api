@@ -1,36 +1,36 @@
 {
-    "name": "twitter-stream-api",
-    "version": "0.3.0",
-    "description": "A streaming Twitter Stream API client with extended exposure of the underlaying protocol events",
-    "main": "lib/main.js",
-    "repository": {
-        "type": "git",
-        "url": "git@github.com:trygve-lie/twitter-stream-api.git"
-    },
-    "bugs": {
+  "name": "twitter-stream-api",
+  "version": "0.3.0",
+  "description": "A streaming Twitter Stream API client with extended exposure of the underlaying protocol events",
+  "main": "lib/main.js",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:trygve-lie/twitter-stream-api.git"
+  },
+  "bugs": {
     "url": "https://github.com/trygve-lie/twitter-stream-api/issues"
-    },
-    "scripts": {
-        "pretest": "jshint ./lib/*.js ./test/*.js",
-        "test": "tap test/*.js"
-    },
-    "keywords": [
-        "twitter",
-        "stream"
-    ],
-    "author": "Trygve Lie <github@trygve-lie.com>",
-    "license": "MIT",
-    "dependencies": {
-        "readable-stream": "2.x",
-        "core-util-is": "1.x",
-        "request": "2.x",
-        "backoff-linear-strategy": "1.x",
-        "backoff": "2.4.x",
-        "emits": "3.x"
-    },
-    "devDependencies": {
-        "request-debug": "0.2.x",
-        "jshint": "latest",
-        "tap": "latest"
-    }
+  },
+  "scripts": {
+    "pretest": "jshint ./lib/*.js ./test/*.js",
+    "test": "tap test/*.js"
+  },
+  "keywords": [
+    "twitter",
+    "stream"
+  ],
+  "author": "Trygve Lie <github@trygve-lie.com>",
+  "license": "MIT",
+  "dependencies": {
+    "readable-stream": "2.0.2",
+    "core-util-is": "1.0.1",
+    "request": "2.64.0",
+    "backoff-linear-strategy": "1.0.0",
+    "backoff": "2.4.1",
+    "emits": "3.0.0"
+  },
+  "devDependencies": {
+    "request-debug": "0.2.0",
+    "jshint": "2.8.0",
+    "tap": "2.0.0"
+  }
 }
