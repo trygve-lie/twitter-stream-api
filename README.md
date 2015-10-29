@@ -47,7 +47,7 @@ Twitter.pipe(fs.createWriteStream('tweets.json'));
 Create a new Twitter Stream API instance.
 
 ```js
-var Twitter = new TwitterStream(keys, objectMode);
+var Twitter = new TwitterStream(keys, [objectMode, options]);
 ```
 
 
@@ -73,6 +73,17 @@ Twitter API keys and tokens can be [generated here](https://apps.twitter.com/).
 Boolean value for controlling if the stream should emit Objects or not. Default
 value is `true` which set the stream to emit Objects. If a non-object stream is
 wanted, set the value to `false`.
+
+
+### options (optional)
+
+An Object containing misc configuration. The following values can be provided:
+
+ * gzip - Boolean value for enabling / disabling gzip on the connection against Twitter.
+ * pool - Sets pool configuration on the underlaying request.js object.
+
+Please refere to [request.js](https://github.com/request/request) for further
+documentation on these cunfiguration options.
 
 
 

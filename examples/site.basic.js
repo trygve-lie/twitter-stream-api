@@ -43,8 +43,8 @@ Twitter.on('connection error stall', function () {
     console.log('connection error stall');
 });
 
-Twitter.on('connection error http', function () {
-    console.log('connection error http');
+Twitter.on('connection error http', function (err) {
+    console.log('connection error http', err);
 });
 
 Twitter.on('connection rate limit', function () {
