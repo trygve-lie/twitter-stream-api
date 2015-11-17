@@ -284,12 +284,12 @@ which are not within the errors defined by the Twitter Stream API documentation.
 ```js
 Twitter.on('connection error unknown', function (error) {
     console.log('connection error unknown', error);
-    Twitter.destroy();
+    Twitter.close();
 });
 ```
 
 When this event is emitted the client will, if it can, keep the connection to
-the Twitter Stream API and not attemt to reconnect. Destroying the connection 
+the Twitter Stream API and not attemt to reconnect. Closing the connection 
 and handling a possilbe reconnect must be handled by the consumer of the client.
 
 
