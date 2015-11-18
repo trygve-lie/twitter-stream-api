@@ -23,7 +23,7 @@
   "dependencies": {
     "readable-stream": "2.0.4",
     "core-util-is": "1.0.1",
-    "request": "2.65.0",
+    "request": "2.66.0",
     "backoff-linear-strategy": "1.0.0",
     "backoff": "2.4.1",
     "emits": "3.0.0"
