@@ -22,7 +22,7 @@
   "license": "MIT",
   "dependencies": {
     "readable-stream": "2.0.4",
-    "core-util-is": "1.0.1",
+    "core-util-is": "1.0.2",
     "request": "2.67.0",
     "backoff-linear-strategy": "1.0.0",
     "backoff": "2.4.1",
