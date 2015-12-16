@@ -31,7 +31,7 @@
   "devDependencies": {
     "request-debug": "0.2.0",
     "jshint": "2.8.0",
-    "nock": "3.4.1",
+    "nock": "3.5.0",
     "tap": "2.3.1"
   }
 }
