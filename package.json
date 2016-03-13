@@ -21,7 +21,7 @@
   "author": "Trygve Lie <github@trygve-lie.com>",
   "license": "MIT",
   "dependencies": {
-    "readable-stream": "2.0.5",
+    "readable-stream": "2.0.6",
     "core-util-is": "1.0.2",
     "request": "2.69.0",
     "backoff-linear-strategy": "1.0.0",
