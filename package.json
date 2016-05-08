@@ -1,6 +1,6 @@
 {
   "name": "twitter-stream-api",
-  "version": "0.4.2",
+  "version": "0.4.3",
   "description": "A streaming Twitter Stream API client with extended exposure of the underlaying protocol events",
   "main": "lib/main.js",
   "repository": {
@@ -21,17 +21,17 @@
   "author": "Trygve Lie <github@trygve-lie.com>",
   "license": "MIT",
   "dependencies": {
-    "readable-stream": "2.0.5",
+    "readable-stream": "2.1.2",
     "core-util-is": "1.0.2",
-    "request": "2.69.0",
+    "request": "2.72.0",
     "backoff-linear-strategy": "1.0.0",
-    "backoff": "2.4.1",
+    "backoff": "2.5.0",
     "emits": "3.0.0"
   },
   "devDependencies": {
     "request-debug": "0.2.0",
-    "jshint": "2.9.1",
-    "nock": "7.0.2",
-    "tap": "5.2.0"
+    "jshint": "2.9.2",
+    "nock": "8.0.0",
+    "tap": "5.7.1"
   }
 }
