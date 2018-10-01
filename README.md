@@ -1,6 +1,6 @@
 # twitter-stream-api
 
-[![Dependencies](https://img.shields.io/david/trygve-lie/twitter-stream-api.svg?style=flat-square)](https://david-dm.org/trygve-lie/twitter-stream-api)[![Build Status](http://img.shields.io/travis/trygve-lie/twitter-stream-api/master.svg?style=flat-square)](https://travis-ci.org/trygve-lie/twitter-stream-api)
+[![Dependencies](https://img.shields.io/david/trygve-lie/twitter-stream-api.svg?style=flat-square)](https://david-dm.org/trygve-lie/twitter-stream-api)[![Build Status](http://img.shields.io/travis/trygve-lie/twitter-stream-api/master.svg?style=flat-square)](https://travis-ci.org/trygve-lie/twitter-stream-api) [![Greenkeeper badge](https://badges.greenkeeper.io/trygve-lie/twitter-stream-api.svg)](https://greenkeeper.io/)
 
 
 A streaming [Twitter Stream API](https://dev.twitter.com/streaming/overview) 
